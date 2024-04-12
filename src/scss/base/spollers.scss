@@ -1,0 +1,102 @@
+// базовые стили спойлеров
+// сниппет (HTML): spoller
+
+// блок со спойлерами
+.spollers {
+	display: grid;
+	border-radius: toRem(10);
+	overflow: hidden;
+}
+// спойлер
+// .spollers__item {
+// 	font-size: toRem(20);
+// }
+// заголовок спойлера
+.spollers__title {
+	width: 100%;
+	min-height: toRem(74);
+	cursor: default;
+	text-align: left;
+	background-color: var(--bg-primary);
+	@include adaptiveValue("padding-top", 40, 20);
+	@include adaptiveValue("padding-left", 40, 20);
+	@include adaptiveValue("padding-bottom", 40, 20);
+
+	padding-right: toRem(60);
+	position: relative;
+	list-style: none;
+	&::marker {
+	}
+	._spoller-init & {
+		cursor: pointer;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			background-color: var(--primary-color);
+			height: toRem(2);
+			width: toRem(10);
+			transition: transform 0.5s ease-in-out 0s;
+		}
+		&::before {
+			transform: translate(-65%, -50%) rotate(40deg);
+		}
+		&::after {
+			transform: translate(0, -50%) rotate(-40deg);
+		}
+		&._spoller-active {
+			&::before {
+				transform: translateX(-35%) rotate(-40deg);
+				background-color: var(--secondary-color);
+			}
+			&::after {
+				transform: translateX(-35%) translateY(-265%) rotate(40deg);
+				background-color: var(--secondary-color);
+			}
+		}
+		/*
+		._spoller-init & {
+			position: relative;
+			width: 100%;
+			text-align: left;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: toRem(12);
+				height: toRem(1);
+				transition: all 0.3s ease 0s;
+				width: toRem(10);
+				background-color: #000;
+			}
+			&::before {
+				transform: rotate(40deg);
+				right: toRem(7);
+			}
+			&::after {
+				transform: rotate(-40deg);
+			}
+		}
+		&._spoller-active {
+			&::before {
+				transform: rotate(-40deg);
+			}
+			&::after {
+				transform: rotate(40deg);
+			}
+		}
+		*/
+	}
+}
+// контент спойлера
+.spollers__body {
+	@include adaptiveValue("padding-bottom", 40, 20);
+	@include adaptiveValue("padding-left", 40, 20);
+	@include adaptiveValue("padding-right", 40, 20);
+	padding-top: 0;
+	border-radius: toRem(5);
+	background-color: var(--secondary-color);
+}

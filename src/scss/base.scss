@@ -1,0 +1,136 @@
+// общий файл элементов форм
+// для подключения/отключения стилей конкретного элемента формы смотри base/forms/forms.scss
+//@import "base/forms/forms";
+
+// стили попапов
+//@import "base/popup";
+
+// стили спойлеров
+//@import "base/spollers";
+
+// стили табов
+//@import "base/tabs";
+
+// стили карт
+// @import "base/maps";
+
+// стили блока "показать еще"
+// @import "base/showmore";
+
+// стили для липкого блока
+// @import "base/sticky";
+
+// cтили для полноэкранного блока
+// @import "base/fullscreen";
+
+// стили для полноэкранной прокрутки
+// Styles for fullpage scroll
+// @import "base/fullpage";
+
+// стили для ripple эффекта
+// Styles for ripple effect
+// @import "base/ripple";
+
+// стили для кастомного курсора
+// Styles for custom cursor
+// @import "base/cursor";
+
+// стили для отзывчивых картинок (IBG)
+// сниппет (HTML): ibg (div c картинкой и классами)
+// сниппет (HTML): ibga (a c картинкой и классами)
+[class*="-ibg"] {
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 10%;
+	}
+}
+[class*="-ibg--contain"] {
+	img {
+		object-fit: contain;
+	}
+}
+
+// шаблоны (заготовки)
+// @extend %имя шаблона;
+// сниппет (SCSS): ex
+
+// счетчик для списка
+// %listCounter {
+// 	list-style-type: none;
+// 	counter-reset: item;
+// 	li {
+// 		position: relative;
+// 		&:before {
+// 			counter-increment: item;
+// 			content: counter(item);
+// 			position: absolute;
+// 			left: 0;
+// 			top: 0;
+// 		}
+// 	}
+// }
+// адаптивное видео
+// %responsiveVideo {
+// 	position: relative;
+// 	overflow: hidden;
+// 	height: 0;
+// 	padding-bottom: 56.25%;
+// 	video,
+// 	iframe,
+// 	object,
+// 	embed {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 	}
+// }
+// видео в качестве фона
+// %videoBackground {
+// 	video,
+// 	iframe,
+// 	object,
+// 	embed {
+// 		position: fixed;
+// 		top: 50%;
+// 		left: 50%;
+// 		min-width: 100%;
+// 		min-height: 100%;
+// 		width: auto;
+// 		height: auto;
+// 		z-index: -100;
+// 		transform: translateX(-50%) translateY(-50%);
+// 		background-size: cover;
+// 	}
+// }
+// серый фильтр
+// %grayfilter {
+// 	transition: all 0.3s ease 0s;
+// 	filter: grayscale(1);
+// 	@media (any-hover: hover) {
+// 		&:hover {
+// 			filter: grayscale(0);
+// 		}
+// 	}
+// }
+// отменить выделение
+// %noselect {
+// 	user-select: none;
+// }
+// зеркальное отображение
+// %mirror {
+// 	transform: scale(-1, 1);
+// }
+// плавный скролл
+// %smoothscroll {
+// 	-webkit-overflow-scrolling: touch;
+// }
+// скрыть скролл
+// %hidescroll {
+// 	&::-webkit-scrollbar {
+// 		display: none;
+// 	}
+// }

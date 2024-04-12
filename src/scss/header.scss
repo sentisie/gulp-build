@@ -1,0 +1,94 @@
+//------------------------------------header--------------------------------------------//
+
+//------------------------------------burger-menu--------------------------------------------//
+
+// .icon-menu {
+// 	display: none;
+// 	@media (max-width: $mobile) {
+// 		display: block;
+// 		position: relative;
+// 		flex: 0 0 toRem(46);
+// 		height: toRem(46);
+// 		border-radius: 130px;
+// 		z-index: 5;
+// 		background-color: #fff;
+// 		@media (any-hover: none) {
+// 			cursor: default;
+// 		}
+// 		span,
+// 		&::before,
+// 		&::after {
+// 			content: "";
+// 			transition: all 0.3s ease-in-out 0s;
+// 			right: 20%;
+// 			position: absolute;
+// 			width: toRem(26);
+// 			height: toRem(2);
+// 			background-color: #000;
+// 		}
+// 		&::before {
+// 			top: 30%;
+// 		}
+// 		&::after {
+// 			bottom: 30%;
+// 		}
+// 		span {
+// 			top: calc(50% - toRem(1));
+// 		}
+// 		.menu-open & {
+// 			span {
+// 				width: 0;
+// 			}
+// 			& {
+// 				background-color: transparent;
+// 			}
+// 			&::before,
+// 			&::after {
+// 				background-color: #fff;
+// 			}
+// 			&::before {
+// 				top: calc(50% - toRem(1));
+// 				transform: rotate(-45deg);
+// 			}
+// 			&::after {
+// 				bottom: calc(50% - toRem(1));
+// 				transform: rotate(45deg);
+// 			}
+// 		}
+// 	}
+// }
+
+// .menu__wrapper {
+// 	position: fixed;
+// 	display: flex;
+// 	justify-content: end;
+// 	width: 100%;
+// 	height: 100%;
+// 	top: 0;
+// 	left: 0;
+// 	background-color: #141414ab;
+// 	visibility: hidden;
+// 	opacity: 0;
+// 	transition: 0.3s ease-in-out;
+// 	z-index: 4;
+// 	.menu-open & {
+// 		visibility: visible;
+// 		opacity: 1;
+// 	}
+// }
+
+// .menu__body {
+// 	display: none;
+// 	@media (max-width: $mobile) {
+// 		display: block;
+// 		border-width: 0px 0px 1px 1px;
+// 		border-style: solid;
+// 		border-color: var(--secondary-color);
+// 		border-radius: 0 0 0 10px;
+// 		width: toRem(170);
+// 		height: toRem(480);
+// 		overflow: auto;
+// 		background-color: var(--bg-secondary);
+// 		padding: toRem(140) toRem(32) toRem(80) toRem(42);
+// 	}
+// }

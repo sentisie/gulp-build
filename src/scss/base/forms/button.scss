@@ -1,0 +1,20 @@
+//<BUTTONS (a.btn+tab)>
+// сниппет (HTML): btn
+
+.main-btn {
+	display: inline-block;
+	border-radius: 8px;
+	background-color: var(--bg-accent-primary);
+	padding: toRem(10) toRem(32);
+	transition: 0.2s ease-in-out;
+	text-align: center;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: transparent;
+		}
+	}
+	@media (max-width: $mobileSmall) {
+		max-width: 100% !important;
+		width: 100%;
+	}
+}

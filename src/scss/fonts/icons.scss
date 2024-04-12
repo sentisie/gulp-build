@@ -1,0 +1,48 @@
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"] {
+	&:before {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-arrow:before {
+	content: "\e900";
+}
+._icon-diamond:before {
+	content: "\e901";
+}
+._icon-flower:before {
+	content: "\e902";
+}
+._icon-girl:before {
+	content: "\e903";
+}
+._icon-grosery:before {
+	content: "\e904";
+}
+._icon-lotus:before {
+	content: "\e905";
+}
+._icon-love:before {
+	content: "\e906";
+}
+._icon-money:before {
+	content: "\e907";
+}
+._icon-power:before {
+	content: "\e908";
+}
+._icon-shine:before {
+	content: "\e909";
+}

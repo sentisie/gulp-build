@@ -1,0 +1,167 @@
+@use "sass:math";
+
+// подключение миксинов
+@import "base/mixins";
+
+// подключение шрифтов
+//&display=swap - добавить при подключении через плагин
+
+// подключить, если есть локальные файлы шрифтов
+//@import "fonts/fonts";
+
+// подключение иконочных шрифтов
+// подключить если есть файл иконочного шрифта
+//@import "fonts/icons";
+
+//---------------- настройка шаблона --------------- //
+
+// шрифт по умолчанию
+$fontFamily: "";
+$fontSize: toRem(16); // где 14(px) - размер шрифта по умолчанию с макета
+
+// настройка адаптивной сетки
+
+// минимальная ширина страницы
+$minWidth: 320;
+
+// ширина макета
+$maxWidth: 1920;
+
+// ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1080;
+
+// общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 40;
+
+// ширина срабатывания первого брейк-поинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// брейк-поинты
+$pc: em(
+	$containerWidth
+); // пк, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // телефоны L
+$mobileSmall: em(479.98); // телефоны S
+
+// root переменные
+@import "base/root-variables";
+
+// тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+// обнуление и общие параметры
+@import "base/null";
+
+// стиль body
+body {
+	line-height: math.div(22, 16);
+	color: var(--primary-color);
+	font-size: var(--primary-text);
+	font-weight: 400;
+	background-color: var(--bg-primary);
+	// скролл заблокирован
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// сайт загружен
+	.loaded & {
+	}
+}
+
+// оболочка wrapper
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+// ограничивающий контейнер
+
+/*
+(i) cтили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+cннипет (HTML): cnt
+*/
+
+@if ($responsiveType==1) {
+	// отзывчивая
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue(
+					"padding-left",
+					math.div($containerPadding, 2),
+					15
+				);
+				@include adaptiveValue(
+					"padding-right",
+					math.div($containerPadding, 2),
+					15
+				);
+			}
+		}
+	}
+} @else {
+	// по брейк-поинтам
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: toRem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: toRem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// подключение базовых стилей, шаблонов (заготовок) и вспомогательных классов
+// для подключения/отключения конкретных стилей смотреть base.scss
+@import "base";
+
+// подключение стилей общих элементов проекта
+@import "common";
+
+// подключение стилей отдельных блоков
+@import "header";
+@import "footer";
+
+// подключение стилей отдельных страниц
+@import "home";

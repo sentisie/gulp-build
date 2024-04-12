@@ -1,0 +1,53 @@
+//<FORM>
+// сниппет (HTML):
+.form {
+	&__row {
+	}
+	&__column {
+	}
+	&__line {
+	}
+	&__input {
+	}
+	&__button {
+	}
+	&__error {
+	}
+}
+//</FORM>
+
+// <BUTTONS>
+// сниппет (HTML): btn
+@import "button";
+
+// <INPUTS>
+// сниппет (HTML): inp
+@import "input";
+
+// <CHECK>
+// сниппет (HTML): chk
+// @import "checkbox";
+
+// <RADIO>
+// сниппет (HTML): opt
+// @import "radio";
+
+// <SELECT>
+// сниппет (HTML): sel
+// @import "select";
+
+// <RATING>
+// сниппет (HTML): rating
+// @import "rating";
+
+// <QUANTITY>
+// сниппет (HTML): qa
+// @import "quantity";
+
+// <RANGE>
+// сниппет (HTML):
+// @import "range";
+
+// <CALENDAR>
+// сниппет (HTML):
+// @import "datepicker";
